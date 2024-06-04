@@ -1,0 +1,98 @@
+.card_wrapper {
+    background-color: var(--content-color);
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    width: 290px;
+    height: 350px;
+    cursor: pointer;
+}
+
+.card {
+    height: min-content;
+    text-decoration: none;
+}
+
+.main_image {
+    width: 200px;
+    height: 200px;
+}
+
+.product_name {
+    font-size: 14px;
+    max-height: 38px;
+    color: var(--main-white);
+    font-family: var(--nunito);
+    margin-top: 20px;
+}
+
+.secondary_data_container {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    gap: 8px;
+    margin-top: 8px;
+    align-items: flex-end;
+}
+
+.brand_name {
+    color: var(--light-grey-text-color);
+    font-family: var(--nunito);
+    font-size: 12px;
+}
+
+.price_tag {
+    color: var(--main-white);
+    font-family: var(--nunito);
+    font-size: 16px;
+    font-weight: 800;
+    max-height: 20px;
+}
+
+.price_tag.discount {
+    color: var(--light-grey-text-color);
+    font-family: var(--nunito);
+    font-size: 12px;
+}
+
+
+.card_wrapper:hover .secondary_data_container {
+    display: none;
+}
+
+.hover_bar {
+    margin-top: 18px;
+    opacity: 0;
+    width: 100%;
+    gap: 10px;
+    display: flex;
+    transition: 0.1s ease-out all;
+}
+
+.card_wrapper:hover .hover_bar {
+    opacity: 1;
+    margin-top: 8px;
+}
+
+.btn {
+    height: 44px;
+    color: var(--main-white);
+    background-color: var(--background-color);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: var(--nunito);
+}
+
+.btn.buy_btn {
+    font-weight: 800;
+    font-size: 14px;
+    flex: 1;
+}
+
+.btn.cart_btn {
+    width: 44px;
+}

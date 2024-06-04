@@ -1,0 +1,25 @@
+.alignBox {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    height: 100%;
+}
+
+.messageWrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.messageWrapper h2  {
+    text-align: center;
+    max-width: 350px;
+}
+
+.messageWrapper img {
+    width: 75px;
+    height: 75px;
+}
