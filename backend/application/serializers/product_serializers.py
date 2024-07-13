@@ -24,11 +24,11 @@ class ProductAttributeValueSeriazlizer(ModelSerializer):
     attribute_name = SerializerMethodField("get_attribute_name")
 
     def get_attribute_name(self, obj):
-        return ProductAttribute.objects.get(pk=obj.pk).name
+        return obj.attribute.name
         
     class Meta:
         model = ProductAttributeValue
-        fields = ("attribute_name", "value")
+        fields = ("value", "attribute_name")
 
 
 class ProductListSerializer(ModelSerializer, ProductGetterMixin):

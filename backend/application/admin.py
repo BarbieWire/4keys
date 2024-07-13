@@ -52,11 +52,8 @@ admin.site.register(ProductAttribute, ProductAttributeAdmin)
 
 
 class UserCartAdmin(admin.ModelAdmin):
-    fields = ("user_id", "created_date")
-    search_fields = (
-        "user_id__username", 
-        "user_id__email"
-    )
+    fields = ("user", "created_date", "session_token")
+    search_fields = ("user__username", "user__email")
     readonly_fields = ("created_date", )
 
 
@@ -73,19 +70,11 @@ class UserWishlistAdmin(admin.ModelAdmin):
 
 
 class UserCartItemAdmin(admin.ModelAdmin):
-    fields = (
-        "cart_id", 
-        "product_id", 
-        "qty"
-    )
+    fields = ("cart", "product", "qty")
 
 
 class UserWishlistItemAdmin(admin.ModelAdmin):
-    fields = (
-        "wishlist_id",
-        "product_id",
-        "in_cart"
-    )
+    fields = ("wishlist", "product", "in_cart")
 
 
 admin.site.register(Cart, UserCartAdmin)

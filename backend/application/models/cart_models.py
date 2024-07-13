@@ -6,15 +6,23 @@ from .product_models import Product
 
 
 class Cart(models.Model):
-    user_id = models.OneToOneField(
+    user = models.OneToOneField(
         to=UserModified,
         unique=True,
         on_delete=models.CASCADE,
+        null=True,
     )
     created_date = models.DateTimeField(auto_now=True)
+    # if user doesn't have an account the annonymous cart will be assigned based on session id
+    session_token = models.CharField(
+        max_length=255, 
+        unique=True, 
+        null=True,
+        blank=True
+    )
 
     def __str__(self):
-        return f"Cart of #{self.user_id}"
+        return f"Cart of {self.user if self.user_id else self.session_token}"
 
     class Meta:
         db_table = "user_carts"
@@ -23,12 +31,12 @@ class Cart(models.Model):
 
 
 class CartItem(models.Model):
-    cart_id = models.ForeignKey(to=Cart, on_delete=models.CASCADE)
-    product_id = models.ForeignKey(to=Product, on_delete=models.CASCADE)
+    cart = models.ForeignKey(to=Cart, on_delete=models.CASCADE)
+    product = models.ForeignKey(to=Product, on_delete=models.CASCADE)
     qty = models.SmallIntegerField(default=1)
 
     def __str__(self):
-        return f"{self.product_id} + {self.cart_id}"
+        return f"<{self.cart}> -- <{self.product}>"
 
     class Meta:
         db_table = "cart_items"

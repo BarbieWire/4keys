@@ -17,7 +17,7 @@ class Category(models.Model):
     )
 
     def __str__(self):
-        return self.name
+        return "Product: ${self.name}"
 
     class Meta:
         db_table = "categories"
@@ -90,7 +90,7 @@ class Product(models.Model):
         super().save(*args, **kwargs)
 
     def __str__(self):
-        return self.name
+        return f"Product: {self.name}"
 
     class Meta:
         db_table = "products"

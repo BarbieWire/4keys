@@ -27,19 +27,18 @@ wishlist_router.register(
 )
 
 cart_router = routers.SimpleRouter()
-wishlist_router.register(
+cart_router.register(
     r'cart', 
-    UserCartItemsViewSet, 
+    CartItemsViewSet, 
     basename='CartItem'
 )
-
 
 urlpatterns = [
     path("", include(product_router.urls)),
     path("", include(categories_router.urls)),
-
-    path("banners/", BannerView.as_view(), name="banners"),
     
-    path("user/", include(cart_router.urls)),
-    path("user/", include(wishlist_router.urls)),
+    path("", include(cart_router.urls)),
+    path("", include(wishlist_router.urls)),
+    
+    path("banners/", BannerView.as_view(), name="banners"),
 ]

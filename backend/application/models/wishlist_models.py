@@ -24,12 +24,12 @@ class Wishlist(models.Model):
 
 
 class WishlistItem(models.Model):
-    wishlist_id = models.ForeignKey(
+    wishlist = models.ForeignKey(
         to=Wishlist,
         on_delete=models.CASCADE,
         blank=True,
     )
-    product_id = models.ForeignKey(to=Product, on_delete=models.CASCADE)
+    product = models.ForeignKey(to=Product, on_delete=models.CASCADE)
     in_cart = models.BooleanField(default=False)
 
     def __str__(self):

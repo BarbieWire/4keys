@@ -3,8 +3,8 @@ from .product_views import (
     CategoryViewSet,
 )
 from .user_views import (
-    UserCartItemsViewSet,
     UserWishlistItemsViewSet,
+    CartItemsViewSet
 )
 
 from .banner_view import (
